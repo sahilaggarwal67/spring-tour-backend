@@ -1,0 +1,1 @@
+insert into tour values(1, 'test', 'test');
