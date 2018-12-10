@@ -23,14 +23,18 @@ import org.tour.repository.TourRepository;
 @Transactional(readOnly = true, propagation = Propagation.NOT_SUPPORTED)
 public class TourServiceImpl implements TourService {
 
-	@Autowired
-	RestTemplate restTemplate;
+	private final RestTemplate restTemplate;
 
-	@Autowired
-	TourRepository tourRepository;
+	private final TourRepository tourRepository;
 
-	@Value("${tour.remoteUrl}")
+	@Value("${tour.remoteUrl:https://s3-eu-west-1.amazonaws.com/pocketguide/_test/store_en.v2.gz}")
 	private String remoteUrl;
+
+	@Autowired
+	public TourServiceImpl(RestTemplate restTemplate, TourRepository tourRepository) {
+		this.restTemplate = restTemplate;
+		this.tourRepository = tourRepository;
+	}
 
 	@Override
 	@Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
