@@ -1,4 +1,3 @@
-insert into tour values(1, 'test', 'test');
 insert into users(username, password, enabled)values('admin','admin12',true);
 insert into authorities(username,authority)values('admin','ROLE_ADMIN');
  

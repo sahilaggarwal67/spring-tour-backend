@@ -4,8 +4,8 @@ DROP TABLE authorities IF EXISTS;
 
 CREATE TABLE tour(
     id INTEGER PRIMARY KEY NOT NULL,
-    name VARCHAR(20) NOT NULL,
-    longDesc VARCHAR(1000)
+    name VARCHAR(255) NOT NULL,
+    long_desc VARCHAR(4000)
 );
 create table users (
     username varchar(50) not null primary key,
